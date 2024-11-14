@@ -13,7 +13,7 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 
-dictapp = {"commandprompt": "cmd", "paint": "MsPaint", "word": "winword", "excel": "excel", "chrome": "chrome", "vscode": "code", "powerpoint": "powerpnt"}
+dictapp = {"commandprompt": "cmd", "paint": "MsPaint", "word": "winword", "excel": "excel", "chrome": "chrome", "vscode": "code", "powerpoint": "powerpnt", "Discord": "Dicord"}
 
 def openappweb(query):
     speak("Launching, sir")

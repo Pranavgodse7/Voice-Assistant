@@ -1,3 +1,5 @@
+import os
+import pyautogui
 import datetime
 import pyttsx3
 import speech_recognition 
@@ -28,6 +30,13 @@ def takeCommand():
         print("Say that again")
         return "None"
     return query
+def alarm(query):
+    timehere = open("Alarmtext.txt","a")
+    timehere.write(query)
+    timehere.close()
+    os.startfile("alarm.py")
+
+
 if __name__ == "__main__":
     while True:
         query = takeCommand().lower()
@@ -38,7 +47,7 @@ if __name__ == "__main__":
             while True:
                 query = takeCommand().lower()
                 if "go to sleep" in query:
-                    speak("Ok sir , You can me call anytime")
+                    speak("Ok sir , You can call me anytime")
                 
                 elif "hello" in query:
                     speak("Hello sir, how are you ?")
@@ -83,6 +92,31 @@ if __name__ == "__main__":
                 elif "close" in query:
                     from Dictapp import closeappweb
                     closeappweb(query)
+                elif "set an alarm" in query:
+                    print("input time example:- 10 and 10 and 10")
+                    speak("Set the time")
+                    a = input("Please tell the time :- ")
+                    alarm(a)
+                    speak("Done,sir")
+                elif "pause" in query:
+                    pyautogui.press("k")
+                    speak("video paused")
+                elif "play" in query:
+                    pyautogui.press("k")
+                    speak("video played")
+                elif "mute" in query:
+                    pyautogui.press("m")
+                    speak("video muted")
+                
+                elif "volume up" in query:
+                    from keyboard import volumeup
+                    speak("Turning volume up,sir")
+                    volumeup()
+                elif "volume down" in query:
+                    from keyboard import volumedown
+                    speak("Turning volume down, sir")
+                    volumedown()
+
 
 
 
